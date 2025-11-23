@@ -3,154 +3,115 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Reservasi meja di Kopi Santai — pesan meja, pilih tipe meja, dan konfirmasi lewat WhatsApp jika perlu." />
+    <meta name="description" content="Reservasi meja di Kopi Santai — pesan tempat favoritmu dengan mudah." />
     <title>Reservasi — Kopi Santai</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
+
   <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="logo">Kopi Santai</h1>
-      <p class="tagline">Nikmati Setiap Tegukan</p>
-      <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="about.html">About</a>
-        <a href="reservation.html" class="active">Reservation</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero reservation-hero">
-      <div class="container hero-content">
-        <h2>Reservasi Meja</h2>
-        <p class="hero-text">Pesan meja Anda untuk pengalaman kopi yang tak terlupakan</p>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">Kopi Santai</h1>
+        <p class="tagline">Nikmati Setiap Tegukan</p>
+        <nav class="main-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="about.html">About</a>
+          <a href="reservation.html" class="active">Reservation</a>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section class="section container">
-      <h3 class="section-title">Form Reservasi</h3>
-      <p class="section-desc">Gunakan form berikut untuk reservasi. Pastikan semua informasi terisi benar. Jika ingin konfirmasi cepat, hubungi WA kami.</p>
+    <main>
+      <section class="section container reservation-page">
 
-      <ul class="reservation-requirements">
-        <li>Reservasi minimal 1 jam sebelum kedatangan untuk grup 1-4 orang.</li>
-        <li>Deposit mungkin diperlukan untuk private room.</li>
-        <li>Batalkan minimal 2 jam sebelum jadwal untuk refund deposit.</li>
-      </ul>
+        <!-- Hero dengan background gambar + overlay + blur -->
+        <div class="reservation-hero">
+          <div class="hero-overlay"></div>
+          <img src="images/interior.jpeg" 
+               alt="Suasana hangat Kopi Santai dengan pelanggan sedang menikmati kopi" loading="lazy">
+          <div class="hero-text">
+            <h1>Reservasi Meja</h1>
+            <p>Nikmati suasana nyaman Kopi Santai bersama teman, keluarga, atau meeting santai</p>
+          </div>
+        </div>
 
-      <form id="reservationForm" class="reservation-form" action="#" method="post" novalidate>
-        <fieldset>
-          <legend>Informasi Pribadi</legend>
+        <p class="text-center reservation-subtitle">Pilih tanggal & waktu · Kami siapkan tempat terbaik untukmu</p>
 
-          <label for="name">Nama Lengkap <span class="req">*</span></label>
-          <input id="name" name="name" type="text" placeholder="Contoh: Budi Santoso" required minlength="2" />
+        <form id="reservationForm" class="reservation-form" action="#" method="post" novalidate>
+          <fieldset>
+            <legend>Informasi Pribadi</legend>
+            <label for="name">Nama Lengkap <span class="req">*</span></label>
+            <input id="name" type="text" required placeholder="Budi Santoso" />
 
-          <label for="email">Email <span class="req">*</span></label>
-          <input id="email" name="email" type="email" placeholder="nama@contoh.com" required />
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" type="email" required placeholder="budi@contoh.com" />
 
-          <label for="phone">No. Telepon <span class="req">*</span></label>
-          <input id="phone" name="phone" type="tel" placeholder="+628123456789" required pattern="^\+?[\d\s\-]{7,15}$" />
-        </fieldset>
+            <label for="phone">No. Telepon <span class="req">*</span></label>
+            <input id="phone" type="tel" required placeholder="+628123456789" />
+          </fieldset>
 
-        <fieldset>
-          <legend>Detail Reservasi</legend>
+          <fieldset>
+            <legend>Detail Reservasi</legend>
+            <label for="date">Tanggal <span class="req">*</span></label>
+            <input id="date" type="date" required />
 
-          <label for="date">Tanggal <span class="req">*</span></label>
-          <input id="date" name="date" type="date" required />
-
-          <label for="time">Waktu <span class="req">*</span></label>
-          <input id="time" name="time" type="time" required />
+            <label for="time">Waktu <span class="req">*</span></label>
+            <input id="time" type="time" required />
 
             <label for="party">Jumlah Orang <span class="req">*</span></label>
-            <select id="party" name="party" required>
-              <option value="">Pilih jumlah orang</option>
+            <select id="party" required>
+              <option value="">Pilih jumlah</option>
               <option value="1">1 orang</option>
               <option value="2">2 orang</option>
               <option value="3">3 orang</option>
               <option value="4">4 orang</option>
-              <option value="5">5 orang</option>
-              <option value="6">6 orang</option>
-              <option value="7">7 orang</option>
-              <option value="8">8 orang</option>
-              <option value="9">9 orang</option>
-              <option value="10">10 orang</option>
+              <option value="5">5–8 orang</option>
+              <option value="9">9+ orang</option>
             </select>
 
-          <label for="tableType">Tipe Meja <span class="req">*</span></label>
-          <select id="tableType" name="tableType" required>
-            <option value="">Pilih tipe meja</option>
-            <option value="regular">Regular</option>
-            <option value="window">Window Seat</option>
-            <option value="private">Private Room</option>
-          </select>
-        </fieldset>
+            <label for="tableType">Tipe Meja <span class="req">*</span></label>
+            <select id="tableType" required>
+              <option value="">Pilih tipe meja</option>
+              <option value="regular">Regular</option>
+              <option value="window">Window Seat</option>
+              <option value="private">Private Room</option>
+            </select>
+          </fieldset>
 
-        <fieldset>
-          <legend>Tambahan</legend>
-          <label for="notes">Catatan Khusus (opsional)</label>
-          <textarea id="notes" name="notes" rows="4" placeholder="Permintaan khusus, alergi, dsb."></textarea>
+          <fieldset>
+            <legend>Catatan (opsional)</legend>
+            <textarea id="notes" rows="4" placeholder="Ulang tahun, alergi, request khusus, dll..."></textarea>
 
-          <div class="checkbox-wrap">
-            <input id="agree" name="agree" type="checkbox" required />
-            <label for="agree">Saya setuju dengan syarat &amp; ketentuan reservasi <span class="req">*</span></label>
-          </div>
+            <div class="checkbox-wrap">
+              <input id="agree" type="checkbox" required />
+              <label for="agree">Saya setuju dengan syarat & ketentuan reservasi <span class="req">*</span></label>
+            </div>
 
-          <button type="submit" class="btn primary">Kirim Reservasi</button>
-        </fieldset>
-      </form>
+            <button type="submit" class="btn primary">Reservasi Sekarang</button>
+          </fieldset>
+        </form>
 
-      <aside class="contact-aside">
-        <h3>Alternatif Kontak</h3>
-        <p>Untuk konfirmasi cepat, hubungi: <a href="tel:+628123456789">+62 812-3456-789</a> atau <a href="https://wa.me/628123456789" target="_blank" rel="noopener">WhatsApp</a>.</p>
-      </aside>
-    </section>
-  </main>
+        <aside class="contact-aside text-center">
+          <h3>Konfirmasi Instan?</h3>
+          <p>Langsung chat kami di <a href="https://wa.me/628123456789" target="_blank" class="wa-link">WhatsApp</a></p>
+        </aside>
+      </section>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Kopi Santai</h3>
-        <p>Alamat: Jl. Contoh No. 123 — Kota Contoh</p>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><h3>Kopi Santai</h3><p>Jl. Kenangan No. 45, Tangerang Selatan</p></div>
+        <div><h4>Jam Operasional</h4><p>Senin–Jumat: 08:00–21:00<br>Sabtu: 09:00–22:00 | Minggu: 09:00–20:00</p></div>
+        <div><h4>Ikuti Kami</h4><ul class="social-list"><li><a href="#" aria-label="Instagram">Instagram</a></li><li><a href="#" aria-label="WhatsApp">WhatsApp</a></li></ul></div>
       </div>
-
-      <div>
-        <h4>Jam Operasional</h4>
-        <p>Senin - Jumat: 08:00 - 21:00</p>
+      <div class="copyright container">
+        © <span id="year"></span> Kopi Santai — All rights reserved.
       </div>
+    </footer>
 
-      <div>
-        <h4>Ikuti Kami</h4>
-        <ul class="social-list">
-          <li><a href="#" aria-label="Instagram">Instagram</a></li>
-          <li><a href="#" aria-label="Facebook">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="copyright container">
-      &copy; <span id="year"></span> Kopi Santai — All rights reserved.
-    </div>
-  </footer>
     <script src="scripts.js"></script>
-
-  <script>
-    // Basic client-side UX validation + friendly messages (progressive enhancement)
-    (function(){
-      const form = document.getElementById('reservationForm');
-      form.addEventListener('submit', function(e){
-        if(!form.checkValidity()){
-          e.preventDefault();
-          // let browser show native errors; additionally we can focus first invalid
-          const firstInvalid = form.querySelector(':invalid');
-          if(firstInvalid) firstInvalid.focus();
-        } else {
-          e.preventDefault(); // prevent actual submit for demo; replace with real submit handler
-          alert('Terima kasih! Permintaan reservasi Anda telah dikirim. Kami akan menghubungi konfirmasi.');
-          form.reset();
-        }
-      });
-    })();
-  </script>
-</body>
+  </body>
 </html>
